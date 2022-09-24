@@ -26,4 +26,5 @@ class Solution:
                     diff[i+1][j+1]=same[i][j]+1
                 ans+=diff[i+1][j+1]
         return ans
+
             
