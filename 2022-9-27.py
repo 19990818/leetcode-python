@@ -26,15 +26,15 @@ class Solution:
         for dislike in dislikes:
             dic1[dislike[0]].append(dislike[1])
             dic1[dislike[1]].append(dislike[0])
-        global color
-        color=1
+        #print(dic1)
         travel=dict()
-        def bfs(start)->bool:
+        def bfs(start,color)->bool:
             queue=[start]
             travel[start]=color
             while True:
                 temp=[]
                 color^=3
+                #print(color)
                 while len(queue)>0:
                     cur=queue[0]
                     queue=queue[1:]
@@ -42,13 +42,14 @@ class Solution:
                         if travel.get(child) is not None and travel[child]!=color:
                             return False
                         if travel.get(child) is None:
-                            travel[child]=1
+                            travel[child]=color
                             temp.append(child)
                 if len(temp)==0:
                     break
                 queue=temp
+            return True
         for i in range(1,n+1):
-            if travel.get(i) is None and not bfs(i):
+            if travel.get(i) is None and not bfs(i,1):
                 return False
         return True
             
