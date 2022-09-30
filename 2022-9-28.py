@@ -49,3 +49,4 @@ class Solution:
                 m[arr[j]]=1
                 j-=1
         return len(m)
+
