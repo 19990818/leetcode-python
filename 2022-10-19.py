@@ -68,4 +68,10 @@ class Solution:
             sum=(1<<label.bit_length())*3-1
             ans.append(sum-label)
             label=sum-label
-        return ans.reverse()      
+        return ans.reverse()
+
+class Solution:
+    def kthGrammar(self, n: int, k: int) -> int:
+        if n==1:return 0
+        if k<=(1<<(n-2)): return self.kthGrammar(n-1,k)
+        return 1-self.kthGrammar(n-1,k-(1<<(n-2)))
