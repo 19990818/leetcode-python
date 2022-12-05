@@ -43,7 +43,7 @@ class Solution:
 class Solution:
     def isPossibleDivide(self, nums: List[int], k: int) -> bool:
         m=defaultdict(int)
-        sorted(nums)
+        nums=sorted(nums)
         for num in nums:
             m[num]+=1
         for num in nums:
