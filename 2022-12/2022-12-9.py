@@ -49,7 +49,7 @@ class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
         q=[root]
         res=root.val
-        while len(q)>0:
+        while len(q)>0: 
             temp=q
             q=[]
             tempRes=0
