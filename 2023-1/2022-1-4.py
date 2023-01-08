@@ -15,4 +15,17 @@ class Solution:
             if sum<=maxSum: left=mid
             else: right=mid
         return left
-                
+    
+class Solution:
+    def countEven(self, num: int) -> int:
+        def isEven(n:int):
+            sum=0
+            while n>0:
+                sum+=n%10
+                n=n//10
+            return sum%2==0
+        res=0
+        for i in range(1,num+1):
+            if isEven(i):
+                res+=1
+        return res
