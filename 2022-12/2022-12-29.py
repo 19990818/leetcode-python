@@ -24,6 +24,10 @@ class Solution:
                     x0=x
             return cnt>=k
         left,right=0,price[-1]-price[0]+1
+        # 当我们进行选择的时候 因为left不发生改变的话 会导致mid也不变化
+        # 造成死循环的情况 这种情况在left+1=right的时候发生 因此直接干掉这种情况
+        # 在这种情况中right实际上永远取不到 因此区间为[left,right)
+        
         while left+1<right:
             # print(left,right)
             mid=(left+right)//2
