@@ -1,4 +1,5 @@
 from heapq import heappop, heappush
+from math import gcd
 import queue
 
 
@@ -40,3 +41,14 @@ class Solution:
             res+=1
             if m[temp]>0: heappush(q,temp)
         return res
+
+class Solution:
+    def findValidSplit(self, nums: List[int]) -> int:
+        n=len(nums)
+        l=0
+        for i in range(n-1):
+            for j in range(l+1,n):
+                if gcd(nums[i],nums[j])!=1:
+                    l=j
+            if l==i:return l
+        return -1
